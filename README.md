@@ -109,9 +109,100 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: KAVINILAVAN DK
+RegisterNumber:  23014025
 */
+SR Flipflop
+module sr(S,R,clk,Q,Qbar);
+
+input S,R,clk;
+
+output reg Q;
+
+output reg Qbar;
+
+initial Q=0;
+
+initial Qbar=1;
+
+always @(posedge clk)
+
+begin
+
+Q=S|((~R)&Q);
+
+Qbar=R|((~S)&(Qbar));
+
+end
+
+endmodule
+
+JK Flipflop
+module jk(J,K,clk,Q,Qbar);
+
+input J,K,clk;
+
+output reg Q;
+
+output reg Qbar;
+
+initial Q=0;
+
+initial Qbar=1;
+
+always @(posedge clk)
+
+begin
+
+Q=(J&(~Q))|((~K)&Q);
+
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+
+end
+
+endmodule
+
+D Flipflop
+module d(d,clk,q,qbar);
+
+input d,clk;
+
+output q,qbar;
+
+reg q,qbar;
+
+always @(posedge clk)
+
+begin
+
+q=d;
+
+qbar=~q;
+
+end
+
+endmodule
+
+T Flipflop
+module t(clk,T,q,qbar);
+
+input clk,T;
+
+output q,qbar;
+
+reg q,qbar;
+
+always @(posedge clk)
+
+begin
+
+q=(T&~q)|(~T&q);
+
+qbar=~q;
+
+end
+
+endmodule
 
 
 
@@ -119,6 +210,10 @@ RegisterNumber:
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+![sr filp flop](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/9c45cde9-3121-4abd-9513-61a4e6289210)
+![d flipflop](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/a9288f6a-f9dc-440c-8cde-01db95f4f473)
+![sr filp flop](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/a281ec67-a2df-4973-8201-4c879c5776a4)
+![sr filp flop](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/c832c7d3-ccc2-46c6-8da3-4bc74e16ac54)
 
 
 
@@ -129,8 +224,16 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+![t timing](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/466e6336-916f-42ae-b5a6-38bc57492c98)
+![d timing](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/46621822-c142-4d80-bfcf-243c4ebd2da8)
+![jk timing](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/ea5ff601-765a-412f-8395-21fe96163af6)
+![sr timing](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/3364da19-1fa7-404a-9a69-d3a7b268f5b5)
 
-
+### TRUTH TABLE FOR FLIP FLOPS 
+![d truth](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/580f39f2-701f-4275-843a-ad373b26601f)
+![sr truth](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/396517ed-7fdb-41eb-ae68-126686c694bb)
+![jk truth](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/9f6df8ef-789f-4c64-8d20-69bb003bbca2)
+![t truth](https://github.com/KavinilavanDK/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870429/972b8d4c-9fc4-438e-8e7a-9207f93b0fad)
 
 
 
@@ -138,3 +241,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Thus, the implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
